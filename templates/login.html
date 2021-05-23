@@ -1,0 +1,13 @@
+{% extends "base.html"  %}
+{% block content %}
+
+    <h2>List</h2>
+    {%for i in range (4) %}
+      <li><a href="/user/{{ d[i][1] }}">{{d[i][0]}}</a></li>
+      <form action="/" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.username.label }}
+        {{ form.username() }}
+      </form>
+    {% endfor %}
+{% endblock %}
