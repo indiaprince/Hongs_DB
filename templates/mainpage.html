@@ -16,22 +16,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   bottom: 0;
   height: inherit;
 }
+input[type='text'] {
+        width: 250px;
+        height: 50px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid black;
+}
 </style>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <a href="/mainpage" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+      <a href="/corporation" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
+      <a href="/search" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
+    </div>
   </div>
-</div>
+
 
 <!-- Sidebar -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
@@ -40,9 +45,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <a class="w3-bar-item w3-button w3-hover-black" href="{{ url_for('corporation') }}">Corportation</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="{{ url_for('academic') }}">Academic</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="{{ url_for('spec') }}">Spec</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="{{ url_for('field') }}">Field</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="{{ url_for('search') }}">Search</a>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -50,64 +53,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
+<script>
 
+</script>
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+      <h1 class="w3-text-teal">User Login</h1>
+      <form method="POST" action = "{{ url_for('corporation') }}">
+        아이디 : <input type="text" id="username" name="username" style = "margin-left: 35px;"><br><br>
+        전공 : <input type="text" id="major" name="major"style = "margin-left: 48px;" ><br><br>
+        전화번호 : <input type="text" id="phone" name="phone" style = "margin-left: 20px;"><br><br>
+        지역 : <input type="text" id="region" name="region" style = "margin-left: 48px;"><br><br>
+        스킬 1 : <input type="text" id="special1" name="special1" style = "margin-left: 35px;">
+        <input type="text" id="specialv1" name="specialv1" style  = "width:50px"><br><br>
+        스킬 2 : <input type="text" id="special2" name="special2" style = "margin-left: 35px;">
+        <input type="text" id="specialv2" name="specialv2" style  = "width:50px"><br><br>
+        <input type="submit" value = "시작하기">
+    </form>
     <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
     </div>
   </div>
 
-  <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-    </div>
-  </div>
-
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-    </div>
-  </div>
-
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
-    </div>
-  </div>
-
-  <footer id="myFooter">
-    <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
-    </div>
-
-    <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </div>
-  </footer>
 
 <!-- END MAIN -->
 </div>

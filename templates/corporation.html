@@ -1,15 +1,656 @@
 <!DOCTYPE html>
-<html lang="en">
-<title>DB Project</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='main_style.css')}}" type = "text/css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-<body>adfedeqw
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+          <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+          <a href="/mainpage" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+          <a href="/corporation" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
+          <a href="/search" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
+        </div>
+      </div>
 
+    <select name="Rank" id="Rank" onchange="chageLangSelect()">
+        <option value="">--Rank--</option>
+        <option value="5">Top5</option>
+        <option value="10">Top10</option>
+        <option value="15">Top15</option>
+        <option value="20">Top20</option>
+        <option value="25">Top25</option>
+    </select>
+    <script> function chageLangSelect(){
+        var langSelect = document.getElementById("Rank");
+        // select element에서 선택된 option의 value가 저장된다.
+        var selectValue = langSelect.options[langSelect.selectedIndex].value;
+        // select element에서 선택된 option의 text가 저장된다.
+        var selectText = langSelect.options[langSelect.selectedIndex].text;
+        } </script>
 
+    <div class="container">
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[0][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="http://m.xportsnews.com/contents/images/upload/article/2016/0609/1465438551240.jpg"
+                    width="100"
+                    height="180"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[0][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                        <form method="POST" action="{{url_for('result')}}">
+                            <input type="hidden" id="username" name="username" value="{{user[0]}}">
+                            <input type="hidden" id="name" name="name" value1="{{corp[0][0]}}">
+                            <input type="submit" value = "자세히 보기">
+                        </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[1][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6ui8u%2FbtqDtzRrCzg%2FZM8q87L5frjEl0za6UnIk1%2Fimg.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[1][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
 
+                        <input type="hidden" id="name" name="name" value="{{corp[1][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[2][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="http://dl.tmon.co.kr/recruit/_Inline/add1a67b-67d5-489c-9d56-c5cd386b4523_101010.jpg"
+                    width="170"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[2][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
 
-    
+                        <input type="hidden" id="name" name="name" value="{{corp[2][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[3][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://i.pinimg.com/originals/84/57/e0/8457e05abadaa5aff79568db5e3fefba.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[3][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
 
+                        <input type="hidden" id="name" name="name" value="{{corp[3][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[4][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosunbiz/OESXLSVZYZRBBTFVXUJEDNEGZY.jpg"
+                    width="100"
+                    height="250"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[4][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[4][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[5][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://file.mk.co.kr/meet/neds/2020/11/image_readtop_2020_1178115_16055141894433702.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[5][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[5][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[6][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://blog.kakaocdn.net/dn/cpNxN8/btqBUTXNaUE/5VALWlD59po3cmUJmrZDy1/img.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[6][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[6][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[7][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://blog.kakaocdn.net/dn/bT4f9F/btqwMJHBvjt/Wl7hSDXr9G94XP3pLqloy0/img.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[7][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[7][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[8][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://i.pinimg.com/originals/04/7d/fe/047dfe5c5e49214a7de9bb2694e0eb68.png"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[8][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[8][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[9][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://blog.kakaocdn.net/dn/KKO8K/btqB9xtMVuX/GnmUCa696JVsbYVobTvD90/img.png"
+                    width="100"
+                    height="160"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[9][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[9][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[10][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://post-phinf.pstatic.net/MjAxOTA0MTFfMTgy/MDAxNTU0OTUwNTY3Njg5.zvNeMYEU-MH2wOTDjEAsft9LZ5qBE2_nR6LVMaNNXKog.PRScZTKou2xOt1rs2sRfuC5RNIleyhVHXeZpt_nkqlEg.JPEG/unhankim20181113144444_X_02_C_1.jpg?type=w1200"
+                    width="100"
+                    height="170"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[10][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[10][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[11][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://image.rocketpunch.com/company/6506/sktelrekom_logo.jpg?s=400x400&t=inside"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[11][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[11][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[12][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="data:image/jpeg;base64,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"
+                    width="100"
+                    height="180"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[12][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[12][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[13][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://t1.kakaocdn.net/kakaocorp/corp_thumbnail/Kakao.png"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[13][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[13][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[14][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://news.nateimg.co.kr/orgImg/mw/2021/03/04/2021030408028078648_1.jpg"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[14][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[14][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[15][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://d.line-scdn.net/n/_s1/_0/linecorp-web-uit/images/line_icon_200_v3.jpg"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[15][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[15][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[16][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://cdn.mediasr.co.kr/news/photo/201901/50618_9997_5649.jpg"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[16][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[16][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[17][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://s3-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/582/000/original/Daangeun_Logo_Color_RGB.jpg?1612781847"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[17][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[17][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[18][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://blog.toss.im/wp-content/uploads/2019/01/BI_L.png"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[18][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[18][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[19][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://t1.daumcdn.net/cfile/tistory/24566D4E526E21083E"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[19][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[19][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[20][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://chosunbiz-chosunbiz-prod.cdn.arcpublishing.com/resizer/5_PawVHW-TZhgRVhcDrAt3BvcSI=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosunbiz/DWLP7BEIOZ3654MKPSGMQKH2AQ.png"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[20][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[20][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[21][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="http://www.ksvalley.com/data/photos/20190103/art_15475138866837_22a7cf.png"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[21][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[21][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[22][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://img.etnews.com/photonews/1812/1134639_20181203145244_719_0001.jpg"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[22][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[22][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[23][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://t1.daumcdn.net/cfile/tistory/995A96485ED7124106"
+                    width="100"
+                    height="200">
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[23][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                        <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[23][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card_inner">
+                <div class="card_inner__circle">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/paperplane.png"
+                    onclick="javascript:location.href='{{corp[24][3]}}';">
+                </div>
+                <div class="card_inner__header">
+                    <img src="https://t1.daumcdn.net/cfile/tistory/276B353358A7077A25"
+                    width="100"
+                    height="200"
+                    >
+                </div>
+                <div class="card_inner__content">
+                    <div class="title">{{corp[24][1]}}</div>
+                    <div class="price"></div>
+                <div class="card_inner__cta">
+                    <form method="POST" action="{{url_for('result')}}">
+                                                    <input type="hidden" id="username" name="username" value="{{user[0]}}">
+
+                        <input type="hidden" id="name" name="name" value="{{corp[24][0]}}">
+                        <input type="submit" value = "자세히 보기">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

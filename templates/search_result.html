@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Result</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+    <div class="w3-top">
+        <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+          <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+          <a href="/mainpage" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+          <a href="/corporation" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
+          <a href="/search" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
+        </div>
+      </div>
+    
+<!-- Page Container -->
+  <!-- The Grid -->
+  <div class="w3-row-padding" style="margin-top: 100px;">
+
+    <!-- Left Column -->
+    
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom" style="width: max-content;">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>채용정보</h2>
+        <div class="w3-container">
+
+
+            {% for m in data %}
+
+              <h3>{{m[3]}}</h3>
+              <li>업무</li>
+              <p>{{m[7]}}</p>
+              <li>지원자격</li>
+              <p>{{m[6]}}</p>
+              <br>
+			      {% endfor %}
+
+
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>DB</b></h5>
+
+          <p>If you enter the language and skills that you learned, you will see relevant recruitment information.</p>
+        </div>
+
+
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+
+</body>
+</html>

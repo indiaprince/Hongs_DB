@@ -1,15 +1,116 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<title>DB Project</title>
+<html>
+<title>Result</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/result_css.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.but{
+  color :white;
+}
+</style>
 
-<body>adfedeqw
+<body class="w3-light-grey">
 
 
+<!-- Page Container -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <a href="/mainpage" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+      <a href="/corporation" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
+      <a href="/search" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
+    </div>
+  </div>
 
+  <!-- The Grid -->
+  <div class="w3-row-padding" style="margin-top: 100px;">
 
-    
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user[0][1]}}</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user[0][2]}}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user[0][4]}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{user[0][3]}}</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>{{user[0][5]}}</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">{{user[0][6]}}</div>
+          </div>
+          <p>{{user[0][7]}}</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">{{user[0][8]}}</div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{company[0][1]}}</h2>
+        <div class="w3-container">
+          <p>{{company[0][2]}}</p>
+          <hr>
+        </div>
+      </div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>채용정보</h2>
+        {% for r in recruit %}
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b></b></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{r[4]}}</h6>
+            <p style="font: italic bold 1.5em/1em Georgia, serif ;">{{r[3]}}</p>
+            <li style="font: italic bold 1.0em/1em Georgia, serif ;">{{r[7]}}</li>
+            <hr class="solid" style="border: 50px;">
+            <form method="POST" action="{{url_for('academic')}}">
+              <input type="hidden" id="field_id" name="field_id" value="{{r[1]}}">
+              <input type="submit" value = "Online material" style = "width : 20%;height : 10% ;"  class="but">
+            </form>
+            <hr class="solid" style="border: 50px;">
+            <form method="POST" action="{{url_for('book')}}">
+              <input type="hidden" id="book_id" name="book_id" value="{{r[1]}}">
+              <input type="hidden" id="proc" name="proc" value=-1>
+              <input type="hidden" id="pk" name="pk" value=-1>
+              <input type="hidden" id="username" name="username" value="{{user[0][1]}}">
+              <input type="submit" value = "Book" style = "width : 20%;height : 10%">
+            </form>
+            <hr class="solid" style="border: 50px;">
+            <form method="POST" action="{{url_for('course')}}">
+              <input type="hidden" id="course_id" name="course_id" value="{{r[1]}}">
+              <input type="submit" value = "Course" style = "width : 20%;height : 10%">
+            </form>
+            <hr>
+          </div>
+          {% endfor %}
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+</div>
 
 </body>
 </html>

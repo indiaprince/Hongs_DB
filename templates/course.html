@@ -3,23 +3,23 @@
 <title>Result</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{url_for('static', filename='book_css.css')}}">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
-<body>
+<body class="w3-light-grey">
     <div class="w3-top">
         <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
           <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-          <a href="/mainpage" class="w3-bar-item w3-button w3-theme-l1">Home</a>
-          <a href="/corporation" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
-          <a href="/search" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
+          <a href="#" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Corporation</a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
         </div>
       </div>
-    
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
@@ -57,6 +57,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           <br>
         </div>
       </div><br>
+
     <!-- End Left Column -->
     </div>
 
@@ -64,34 +65,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="w3-twothird">
 
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Online-Material</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Course</h2>
         <div class="w3-container">
 
+          {% for m in course %}
+          <div>
+            <li>{{m[2]}}</li>
+          </div>
 
-            {% for m in material %}
-              <h3><a href="{{m[5]}}">{{m[2]}}</a></h3>
-              <h4>{{m[4]}} </h4>
 
-              <br>
-			      {% endfor %}
+                <br>
+			             {% endfor %}
 
 
           <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
         </div>
       </div>
-
-
 
     <!-- End Right Column -->
     </div>
